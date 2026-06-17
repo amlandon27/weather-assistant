@@ -93,6 +93,24 @@ def test_display_todays_plan_with_events(sample_calendar):
     assert "Weather Conditions" in output
 
 
+def test_display_todays_plan_no_rules_shows_friendly_message(sample_calendar):
+    fetch = make_mock_fetch(
+        make_geocode_response(),
+        make_forecast_response(
+            ["2026-06-17T09:00", "2026-06-17T12:00"],
+            [72.0, 75.0],
+            [15, 10],
+            daily_weather_code=2,
+        ),
+    )
+
+    output = display_todays_plan(sample_calendar, date(2026, 6, 17), fetch=fetch)
+
+    assert "Recommendations" in output
+    assert "No special preparation recommended today. Have a great day!" in output
+    assert "Bring an umbrella." not in output
+
+
 def test_display_todays_plan_empty(sample_calendar):
     output = display_todays_plan(sample_calendar, date(2026, 6, 19))
     assert "No events scheduled for today." in output

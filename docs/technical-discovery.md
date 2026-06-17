@@ -124,13 +124,21 @@ Events with failed or missing weather are skipped for recommendation generation.
 
 ### Display Format
 
-Recommendations are appended only when non-empty:
+When rules fire:
 
 ```text
 Recommendations
 
 • Bring an umbrella.
 • Dress appropriately and bring a fan.
+```
+
+When no rules fire:
+
+```text
+Recommendations
+
+No special preparation recommended today. Have a great day!
 ```
 
 ### Weather Conditions (replaces Weather Alerts)

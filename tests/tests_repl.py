@@ -3,6 +3,7 @@ from datetime import date
 
 import pytest
 
+from advice_engine import NO_RECOMMENDATIONS_MESSAGE
 from conftest import make_forecast_response, make_geocode_response, make_mock_fetch
 from main import HELP_TEXT, handle_command, run_repl
 
@@ -59,7 +60,7 @@ def test_handle_command_today_weather_failure(sample_calendar):
     )
 
     assert "9:00 AM Team Meeting (Houston, TX) | Weather unavailable" in output
-    assert "Recommendations" not in output
+    assert NO_RECOMMENDATIONS_MESSAGE in output
 
 
 def test_handle_command_help():

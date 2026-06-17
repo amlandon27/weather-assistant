@@ -7,7 +7,7 @@ from datetime import date
 from pathlib import Path
 from typing import Callable
 
-from advice_engine import generate_recommendations
+from advice_engine import NO_RECOMMENDATIONS_MESSAGE, generate_recommendations
 from calendar_reader import Event, format_event_time, get_events_for_date
 from weather import JsonFetcher, WeatherResult, default_fetch
 from weather import format_daily_conditions, get_weather_for_events
@@ -63,10 +63,12 @@ def display_todays_plan(
             lines.extend(daily_conditions)
 
         recommendations = generate_recommendations(event_weather_results)
+        lines.extend(["", "Recommendations", ""])
         if recommendations:
-            lines.extend(["", "Recommendations", ""])
             for recommendation in recommendations:
                 lines.append(f"• {recommendation}")
+        else:
+            lines.append(NO_RECOMMENDATIONS_MESSAGE)
 
     return "\n".join(lines)
 

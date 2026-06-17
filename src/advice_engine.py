@@ -12,6 +12,9 @@ logger = logging.getLogger(__name__)
 UMBRELLA_RECOMMENDATION = "Bring an umbrella."
 HEAT_RECOMMENDATION = "Dress appropriately and bring a fan."
 SEVERE_WEATHER_RECOMMENDATION = "Plan travel accordingly."
+NO_RECOMMENDATIONS_MESSAGE = (
+    "No special preparation recommended today. Have a great day!"
+)
 
 RAIN_THRESHOLD_PERCENT = 30
 HEAT_THRESHOLD_F = 90
