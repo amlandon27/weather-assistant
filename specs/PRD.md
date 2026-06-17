@@ -550,10 +550,6 @@ Event locations can be resolved into valid weather lookup locations.
 
 Calendar events contain sufficient date information to determine whether they occur today.
 
-## Open Questions
-
-None currently identified.
-
 ---
 
 # 16. Glossary
