@@ -48,7 +48,7 @@ data/
 ## Running
 
 ```bash
-pip install -r requirements.txt
+pip install pytest
 pytest
 PYTHONPATH=src python3 src/main.py
 ```

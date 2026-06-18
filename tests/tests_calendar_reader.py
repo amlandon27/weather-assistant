@@ -93,6 +93,24 @@ def test_display_todays_plan_with_events(sample_calendar):
     assert "Weather Conditions" in output
 
 
+def test_display_todays_plan_shows_only_todays_events(sample_calendar):
+    fetch = make_mock_fetch(
+        make_geocode_response(),
+        make_forecast_response(
+            ["2026-06-17T09:00", "2026-06-17T12:00"],
+            [72.0, 80.0],
+            [20, 15],
+        ),
+    )
+
+    output = display_todays_plan(sample_calendar, date(2026, 6, 17), fetch=fetch)
+
+    assert "Team Meeting" in output
+    assert "Lunch with Sarah" in output
+    assert "Doctor Appointment" not in output
+    assert "2026-06-18" not in output
+
+
 def test_display_todays_plan_no_rules_shows_friendly_message(sample_calendar):
     fetch = make_mock_fetch(
         make_geocode_response(),

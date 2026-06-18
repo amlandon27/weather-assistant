@@ -241,7 +241,7 @@ PYTHONPATH=src python3 src/main.py
 - `pytest.ini` — `pythonpath = src`, discovers `tests_*.py`
 - `conftest.py` — `make_mock_fetch`, `make_forecast_response`, `make_geocode_response`
 - Unit tests do not call live Open-Meteo APIs
-- `requirements.txt` — `pytest` only (runtime uses stdlib)
+- Install pytest to run tests: `pip install pytest`
 
 ### FR-11 Note
 
